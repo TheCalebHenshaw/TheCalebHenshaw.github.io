@@ -2,235 +2,163 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width",initial-scale="1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caleb Henshaw Portfolio</title>
-    <link href="/static/stylesheets/styles.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheets/styles.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/static/scripts/tut.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
 </head>
-
 <body>
     <section id="header">
-    <header class="header">
-        <div class="header-content" id="myHeader">
-            <div class="header-title">
-                <a href="index.html">
-                </a>
+        <header class="header">
+            <div class="header-content" id="myHeader">
+                <div class="header-title">
+                </div>
+                <nav>
+                    <ul class="header-nav-buttons">
+                        <li><button type="button" id="homeButton">Home</button></li>
+                        <li><button type="button" id="aboutButton">About</button></li>
+                        <li><button type="button" id="projectButton">Projects</button></li>
+                        <li><button type="button" id="contactButton">Contact</button></li>
+                        <li><a href="/static/resume.pdf" target="_blank"><button type="button" id="resumeButton">Resume</button></a></li>
+                    </ul>
+                    <div class="hamburger-menu" id="hamburgerMenu">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </nav>
+                <div class="mobile-nav" id="mobileNav">
+                    <ul>
+                        <li><button type="button" onclick="toggleMenu()">Home</button></li>
+                        <li><button type="button" onclick="toggleMenu()">About</button></li>
+                        <li><button type="button" onclick="toggleMenu()">Projects</button></li>
+                        <li><button type="button" onclick="toggleMenu()">Contact</button></li>
+                        <li><a href="/static/resume.pdf" target="_blank"><button type="button" onclick="toggleMenu()">Resume</button></a></li>
+                    </ul>
+                </div>
             </div>
-            <nav>
-                <ul class="header-nav-buttons">
-                    <li>
-                        <button type="button" id="homeButton">
-                            Home
-                        </button>
-                    </li>
-                    <li>
-                        <button type="button" id="aboutButton">
-                            About
-                        </button></li>
-                    <li>
-                        <button type="button" id="projectButton">
-                            Projects
-                        </button>
-                    </li>
-        
-                    <li>
-                        <button type="button" id="contactButton">
-                            Contact
-                        </button>
-                    </li>
-                    <li><a href="/static/resume.pdf" target="_blank">
-                        <button type="button" id="resumeButton">
-                            
-                            Resume
-                        </button>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+        </header>
     </section>
-    <!-- Start of the page -->
     <section id="home">
-
         <h1>Caleb Henshaw</h1>
         <h3>Software developer passionate about all things tech!</h3>
-
         <div class="socialMedia">
-            <a href="https://www.linkedin.com/in/caleb-henshaw-095998308/" target="_blank">
-                <div class="linkedinIcon"></div>
-            </a>
-            <a href="https://www.GitHub.com/TheCalebHenshaw" target="_blank">
-                <div class="githubIcon"></div>
-            </a>
-            <a href="mailto:caleb.henshaw67@gmail.com">
-                <div class="mailIcon"></div>
-            </a>
+            <a href="https://www.linkedin.com/in/caleb-henshaw-095998308/" target="_blank"><div class="linkedinIcon"></div></a>
+            <a href="https://www.GitHub.com/TheCalebHenshaw" target="_blank"><div class="githubIcon"></div></a>
+            <a href="mailto:caleb.henshaw67@gmail.com"><div class="mailIcon"></div></a>
         </div>
-
         <div class="center-wrapper">
             <div class="startButton">
-                <button class="startButton">
-                    <img src="/static/images/arrowdown.png" alt="Scroll Down">
-                </button>
+                <button class="startButton"><img src="/static/images/arrowdown.png" alt="Scroll Down"></button>
             </div>
         </div>
     </section>
-        <!--ABOUT ME (autoscroll finds this div) SECTION-->
-        <section id="about">
-            <h2>About</h2>
-        
-            <div class="about-container">
-                <div class="content">
-                    <div class="image-container">
-                        <img src="/static/images/profile.JPG" alt="Profile">
-                    </div>
-                    <div class="text-content">
-                        <h4>Profile</h4>
-                        <h5>Languages</h5>
-                        <ul>
-                            <li>English - Native speaker</li>
-                            <li>German - Intermediate speaker</li>
-                            <li>French - Basic speaker</li>
-                        </ul>
-                    </div>
+    <section id="about">
+        <h2>About</h2>
+        <div class="about-container">
+            <div class="content">
+                <div class="image-container">
+                    <img src="/static/images/profile.JPG" alt="Profile">
                 </div>
-                <div class="content">
-                    <div class="image-container">
-                        <img src="/static/images/glasgow.jpg" alt="University of Glasgow">
-                    </div>
-                    <div class="text-content">
-                        <h4>Education</h4>
-                        <p>BSc Computing Science & Business Management</p>
-                        <h5>Glasgow, 2022-Present</h5>
-                    </div>
-                </div>
-                
-
-                
-                <div class="skills-section">
-                    <h4>Skills</h4>
+                <div class="text-content">
+                    <h4>Profile</h4>
+                    <h5>Languages</h5>
                     <ul>
-                        <li class="skill-item">
-                            <div class="skill-name">Python</div>
-                            <div class="progress-bar">
-                                <div class="progress" data-proficiency="60"></div>
-                            </div>
-                        </li>
-                        <li class="skill-item">
-                            <div class="skill-name">Java</div>
-                            <div class="progress-bar">
-                                <div class="progress" data-proficiency="60"></div>
-                            </div>
-                        </li>
-                        <li class="skill-item">
-                            <div class="skill-name">HTML / CSS</div>
-                            <div class="progress-bar">
-                                <div class="progress" data-proficiency="50"></div>
-                            </div>
-                        </li>
-                        <li class="skill-item">
-                            <div class="skill-name">TypeScript</div>
-                            <div class="progress-bar">
-                                <div class="progress" data-proficiency="40"></div>
-                            </div>
-                        </li>
-                        <li class="skill-item">
-                            <div class="skill-name">C#</div>
-                            <div class="progress-bar">
-                                <div class="progress" data-proficiency="40"></div>
-                            </div>
-                        </li>
-
+                        <li>English - Native speaker</li>
+                        <li>German - Intermediate speaker</li>
+                        <li>French - Basic speaker</li>
                     </ul>
-                    <h4>Frameworks & Tools</h4>
-                    <p>SQL, Git, GitLab, Django, React, jQuery</p>
                 </div>
             </div>
-        </section>
-
-
-    <!--PROJECTS SECTION-->
-        <section id="projects">
-            <h2>Projects</h2>
-
-            <ul class="projectList">
-                <li class="projectItem">
-                    <img src="/static/images/typerush.png" class="projectImage" alt="Project 1">
-                    <div class="projectInfo">
-                        <h3>TypeRush</h3>
-                        <h5>A Speed typing web application using Django. Created for WAD2</h5>
-                        <p>Python | JavaScript | Django | HTML/CSS | jQuery</p>
-                        <a href="https://github.com/TheCalebHenshaw/TypeRush" class="github-button" target="_blank"></a>
-                    </div>
-
-                </li>
-                <li class="projectItem">
-                    <img src="/static/images/RPG.png" class="projectImage" alt="Project 2">
-                    <div class="projectInfo">
-                        <h3>RPG Unity</h3>
-                        <h5>Created a simple RPG using Unity and C#. This is an on-going project that I aspire to post on a large platform.</h5>
-                        <p>C# | Unity</p>
-                    </div>
-                </li>
-                <li class="projectItem">
-                    <img src="/static/images/website.png" class="projectImage" alt="Project 3">
-                    <div class="projectInfo">
-                        <h3>Personal Website</h3>
-                        <h5>Simple website used to host projects, resume and more!</h5>
-                        <p>HTML/CSS | jQuery | JavaScript</p>
-                        <a href="https://github.com/TheCalebHenshaw/TypeRush" class="github-button" target="_blank"></a>
-                    </div>
-                </li>
-                <!-- Add more project items as needed -->
-            </ul>
-            <button class="showMore">More soon!</button>
-        </section>
-
-    <!--CONTACT ME SECTION-->
-        <section id="contact">
-            <h2>Let's Connect!</h2>
-            <p>Feel free to email me or contact me on these platforms!</p>
-            <div class="socialMedia">
-                <a href="https://www.linkedin.com/in/caleb-henshaw-095998308/" target="_blank">
-                    <div class="linkedinIcon"></div>
-                </a>
-                <a href="https://www.GitHub.com/TheCalebHenshaw" target="_blank">
-                    <div class="githubIcon"></div>
-                </a>
-                <a href="mailto:caleb.henshaw67@gmail.com">
-                    <div class="mailIcon"></div>
-                </a>
+            <div class="content">
+                <div class="image-container">
+                    <img src="/static/images/glasgow.jpg" alt="University of Glasgow">
+                </div>
+                <div class="text-content">
+                    <h4>Education</h4>
+                    <p>BSc Computing Science & Business Management</p>
+                    <h5>Glasgow, 2022-Present</h5>
+                </div>
             </div>
-
-        </section>
-        
-
-        <div class="endButton">
-            <button id="endButton">
-                <img src="/static/images/arrowup.png" alt="Scroll Up">
-            </button>
+            <div class="skills-section">
+                <h4>Skills</h4>
+                <ul>
+                    <li class="skill-item">
+                        <div class="skill-name">Python</div>
+                        <div class="progress-bar"><div class="progress" data-proficiency="60"></div></div>
+                    </li>
+                    <li class="skill-item">
+                        <div class="skill-name">Java</div>
+                        <div class="progress-bar"><div class="progress" data-proficiency="60"></div></div>
+                    </li>
+                    <li class="skill-item">
+                        <div class="skill-name">HTML / CSS</div>
+                        <div class="progress-bar"><div class="progress" data-proficiency="50"></div></div>
+                    </li>
+                    <li class="skill-item">
+                        <div class="skill-name">TypeScript</div>
+                        <div class="progress-bar"><div class="progress" data-proficiency="40"></div></div>
+                    </li>
+                    <li class="skill-item">
+                        <div class="skill-name">C#</div>
+                        <div class="progress-bar"><div class="progress" data-proficiency="40"></div></div>
+                    </li>
+                </ul>
+                <h4>Frameworks & Tools</h4>
+                <p>SQL, Git, GitLab, Django, React, jQuery</p>
+            </div>
         </div>
-
-
-
-        <section id="footer">
-            <footer>
-                <div class="footer-content">
-                    <p>Built & Designed by Caleb Henshaw</p>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul class="projectList">
+            <li class="projectItem">
+                <img src="/static/images/typerush.png" class="projectImage" alt="Project 1">
+                <div class="projectInfo">
+                    <h3>TypeRush</h3>
+                    <h5>A Speed typing web application using Django. Created for WAD2</h5>
+                    <p>Python | JavaScript | Django | HTML/CSS | jQuery</p>
+                    <a href="https://github.com/TheCalebHenshaw/TypeRush" class="github-button" target="_blank"></a>
                 </div>
-            </footer>
-        </section>
-
-
-</div>
+            </li>
+            <li class="projectItem">
+                <img src="/static/images/RPG.png" class="projectImage" alt="Project 2">
+                <div class="projectInfo">
+                    <h3>RPG Unity</h3>
+                    <h5>Created a simple RPG using Unity and C#. This is an on-going project that I aspire to post on a large platform.</h5>
+                    <p>C# | Unity</p>
+                </div>
+            </li>
+            <li class="projectItem">
+                <img src="/static/images/website.png" class="projectImage" alt="Project 3">
+                <div class="projectInfo">
+                    <h3>Personal Website</h3>
+                    <h5>Simple website used to host projects, resume and more!</h5>
+                    <p>HTML/CSS | jQuery | JavaScript</p>
+                    <a href="https://github.com/TheCalebHenshaw/TypeRush" class="github-button" target="_blank"></a>
+                </div>
+            </li>
+        </ul>
+        <button class="showMore">More soon!</button>
+    </section>
+    <section id="contact">
+        <h2>Let's Connect!</h2>
+        <p>Feel free to email me or contact me on these platforms!</p>
+        <div class="socialMedia">
+            <a href="https://www.linkedin.com/in/caleb-henshaw-095998308/" target="_blank"><div class="linkedinIcon"></div></a>
+            <a href="https://www.GitHub.com/TheCalebHenshaw" target="_blank"><div class="githubIcon"></div></a>
+            <a href="mailto:caleb.henshaw67@gmail.com"><div class="mailIcon"></div></a>
+        </div>
+    </section>
+    <div class="endButton">
+        <button id="endButton"><img src="/static/images/arrowup.png" alt="Scroll Up"></button>
+    </div>
+    <section id="footer">
+        <footer>
+            <div class="footer-content">
+                <p>Built & Designed by Caleb Henshaw</p>
+            </div>
+        </footer>
+    </section>
 </body>
-
-
-
-
-
 </html>
