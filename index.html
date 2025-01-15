@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="google-site-verification" content="tUmoAooPzVOoTaAT5ZHviKZUetbVEchcV99zLZS2500" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Caleb Henshaw - Software Developer</title>
 
   <!-- Font Awesome for icons -->
@@ -13,319 +12,366 @@
   />
 
   <style>
-    /* BASIC RESET & TYPOGRAPHY */
+    /********************************
+     * GLOBAL RESET & THEME
+     ********************************/
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: "Helvetica Neue", sans-serif;
     }
+
     body {
+      background-color: #fff;
       color: #333;
       line-height: 1.6;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem 1rem; /* Spacing around the main container */
-    }
-    h1, h2, h3 {
-      margin-bottom: 0.75rem;
-      text-align: center;
-    }
-    p {
-      margin-bottom: 0.75rem;
-      color: #555;
-      text-align: center;
-    }
-    section {
-      margin-bottom: 3rem; /* Spacing between sections */
     }
 
-    /* HEADER / HOME SECTION */
-    #home {
+    a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: #3498db; /* accent color */
+    }
+
+    /********************************
+     * SIDEBAR / NAV
+     ********************************/
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 280px;          /* side panel width */
+      height: 100vh;         /* fill full height */
+      background: #f8f8f8;   /* subtle background */
+      box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Name / Tagline area in sidebar */
+    .brand {
+      margin-bottom: 2rem;
+    }
+    .brand h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
+      color: #333;
+    }
+    .brand p {
+      color: #777;
+      font-size: 0.95rem;
+    }
+
+    /* Navigation links */
+    nav ul {
+      list-style-type: none;
+      margin-top: 2rem;
+    }
+    nav li {
+      margin-bottom: 1rem;
+    }
+    nav a {
+      font-size: 1rem;
+      font-weight: 500;
+      display: inline-block;
+    }
+
+    /* Social icons at bottom of sidebar */
+    .sidebar .socialMedia {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .sidebar .socialMedia a {
+      font-size: 1.2rem;
+      color: #666;
+    }
+    .sidebar .socialMedia a:hover {
+      color: #3498db;
+    }
+
+    /********************************
+     * MAIN CONTENT
+     ********************************/
+    .content {
+      margin-left: 280px; /* leaves space for the fixed sidebar */
+      padding: 2rem;
+      min-height: 100vh;  /* ensure it fills vertically when content is small */
+    }
+
+    /* HOME SECTION */
+    header {
       margin-bottom: 3rem;
     }
-    #home h1 {
+    header h2 {
       font-size: 2rem;
       margin-bottom: 0.5rem;
     }
-    #home h3 {
-      color: #666;
+    header h3 {
+      color: #555;
       font-weight: 400;
       margin-bottom: 1rem;
     }
     .resume-button {
       display: inline-block;
-      padding: 0.5rem 1rem;
+      padding: 0.6rem 1.2rem;
       background: #333;
       color: #fff;
       border-radius: 4px;
       text-decoration: none;
       transition: background 0.3s;
+      font-size: 1rem;
     }
     .resume-button:hover {
-      background: #555;
-    }
-
-    /* SOCIAL ICONS */
-    .socialMedia {
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      margin: 1.5rem 0;
-    }
-    .socialMedia a {
-      font-size: 1.5rem;
-      color: #555;
-      transition: color 0.3s;
-    }
-    .socialMedia a:hover {
-      color: #0077b5;
+      background: #444;
     }
 
     /********************************
      * ABOUT SECTION
      ********************************/
+    #about {
+      margin-bottom: 3rem;
+    }
     #about h2 {
-      margin-bottom: 2rem;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
     }
     .about-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
     }
-
     .about-card {
       background: #fafafa;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      padding: 1.5rem;
-      display: flex;              /* flex-based for vertical alignment */
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      padding: 1rem;
       text-align: center;
-      min-height: 300px;          /* ensures even card heights */
     }
     .about-card img {
-      width: 100px;
-      height: 100px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
     .about-card h4 {
       margin-bottom: 0.5rem;
+      font-weight: 600;
     }
     .about-card p {
+      color: #555;
+      font-size: 0.95rem;
       line-height: 1.4;
-      margin-bottom: 0.5rem;
-    }
-    /* Optional horizontal rule in the Skills card to separate subsections */
-    .divider {
-      width: 60%;
-      margin: 1rem auto;
-      border: none;
-      border-top: 1px solid #e0e0e0;
     }
 
     /********************************
      * PROJECTS SECTION
      ********************************/
+    #projects {
+      margin-bottom: 3rem;
+    }
     #projects h2 {
-      margin-bottom: 2rem;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
     }
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
     }
-
-    /* Make each project card consistent in height */
     .project-card {
       background: #fafafa;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;         /* stack content vertically */
-      justify-content: space-between; /* button aligned at bottom */
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      padding: 1rem;
       text-align: center;
-      min-height: 350px;             /* ensure consistent card height */
+      display: flex;
+      flex-direction: column;
     }
     .project-card img {
       width: 100%;
       height: auto;
-      margin-bottom: 1rem;
-      border-radius: 6px;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
       object-fit: cover;
     }
     .project-card h3 {
       margin-bottom: 0.5rem;
+      font-size: 1.2rem;
     }
     .project-card p {
-      margin-bottom: 1rem;
+      flex: 1 0 auto;
+      font-size: 0.95rem;
       line-height: 1.4;
-      flex: 1 0 auto;   /* allows p to grow/shrink while button stays at bottom */
+      margin-bottom: 1rem;
+      color: #555;
     }
     .project-card a {
-      display: inline-block;
       padding: 0.5rem 1rem;
       background: #333;
       color: #fff;
       border-radius: 4px;
       text-decoration: none;
       transition: background 0.3s;
-      align-self: center; /* center the button horizontally */
+      font-size: 0.9rem;
+      align-self: center;
     }
     .project-card a:hover {
-      background: #555;
+      background: #444;
     }
 
     /********************************
      * CONTACT SECTION
      ********************************/
     #contact h2 {
+      font-size: 1.6rem;
       margin-bottom: 1rem;
     }
     #contact p {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
     /********************************
      * FOOTER
      ********************************/
     footer {
-      text-align: center;
-      font-size: 0.85rem;
+      margin-top: 4rem; /* create space before footer */
+      font-size: 0.9rem;
       color: #999;
-      margin-top: 2rem;
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid #eee;
     }
   </style>
 </head>
 <body>
-  <!-- HEADER / HOME SECTION -->
-  <section id="home">
-    <h1>Caleb Henshaw</h1>
-    <h3>Software developer passionate about all things tech!</h3>
-    <p>
-      <a href="././static/resume.pdf" class="resume-button" target="_blank">
-        View My Resume
-      </a>
-    </p>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <h1>Caleb Henshaw</h1>
+      <p>CS Undergrad</p>
+      <p>Software Developer</p>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
     <div class="socialMedia">
-      <a href="https://www.linkedin.com/in/caleb-henshaw-095998308/" target="_blank">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://www.github.com/TheCalebHenshaw" target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="mailto:caleb.henshaw67@gmail.com">
-        <i class="fas fa-envelope"></i>
-      </a>
+      <a href="https://www.linkedin.com/in/caleb-henshaw-095998308/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/TheCalebHenshaw" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:caleb.henshaw67@gmail.com"><i class="fas fa-envelope"></i></a>
     </div>
-  </section>
+  </aside>
 
-  <!-- ABOUT SECTION -->
-  <section id="about">
-    <h2>About</h2>
-    <div class="about-grid">
-      <!-- Profile Card -->
-      <div class="about-card">
-        <img src="././static/images/newprofile.jpg" alt="Profile Photo" />
-        <h4>Profile</h4>
-        <p>Languages: English (Native), German (Intermediate), French (Basic)</p>
+  <!-- MAIN CONTENT -->
+  <div class="content">
+    <!-- HOME / INTRO SECTION -->
+    <header id="home">
+      <h2>Hey! I'm Caleb</h2>
+      <h3>Passionate about building impactful software</h3>
+      <a href="././static/resume.pdf" class="resume-button" target="_blank">View My Resume</a>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="about-grid">
+        <!-- Profile Card -->
+        <div class="about-card">
+          <img src="././static/images/newprofile.jpg" alt="Profile Photo" />
+          <h4>Profile</h4>
+          <p>
+            Languages: English (Native), German (Intermediate), French (Basic)
+          </p>
+        </div>
+        <!-- Education Card -->
+        <div class="about-card">
+          <img src="././static/images/glasgow.jpg" alt="University of Glasgow" />
+          <h4>Education</h4>
+          <p>
+            BSc Hons. Computing Science<br>
+            University of Glasgow, 2022-Present
+          </p>
+        </div>
+        <!-- Skills Card -->
+        <div class="about-card">
+          <h4>Skills</h4>
+          <p>Python, Java, TypeScript, C, HTML/CSS</p>
+          <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 1rem 0;" />
+          <h4>Frameworks &amp; Tools</h4>
+          <p>SQL, Git, Django, React, NumPy</p>
+        </div>
       </div>
+    </section>
 
-      <!-- Education Card -->
-      <div class="about-card">
-        <img src="././static/images/glasgow.jpg" alt="University of Glasgow" />
-        <h4>Education</h4>
-        <p>BSc Hons. Computing Science <br>
-           University of Glasgow, 2022-Present
-        </p>
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <!-- TypeRush -->
+        <div class="project-card">
+          <img src="././static/images/typerush.png" alt="TypeRush" />
+          <h3>TypeRush</h3>
+          <p>
+            A speed typing web application built with Django.
+            <br><strong>Tech:</strong> Python, JavaScript, Django, jQuery
+          </p>
+          <a href="https://github.com/TheCalebHenshaw/TypeRush" target="_blank">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
+        </div>
+        <!-- RPG Unity -->
+        <div class="project-card">
+          <img src="././static/images/fridge3.jpg" alt="RPG Unity" />
+          <h3>FridgeScanEat</h3>
+          <p>
+            A Simple Web Application using AI to suggest recipes based on ingredients you have.
+            <br><strong>Tech:</strong> React, NextJS, NodeJS, SQLite
+          </p>
+          <a href="#" target="_blank">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
+        </div>
+        <!-- Tron -->
+        <div class="project-card">
+          <img src="././static/images/tron.png" alt="Tron Hackathon Project" />
+          <h3>Tron</h3>
+          <p>
+            A 2D game based on Tron, built for a JP Morgan hackathon, placing second.
+            <br><strong>Tech:</strong> Python, PyGame
+          </p>
+          <a href="https://github.com/TheCalebHenshaw/dyhtg-tron" target="_blank">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
+        </div>
       </div>
+    </section>
 
-      <!-- Skills Card -->
-      <div class="about-card">
-        <h4>Skills</h4>
-        <p>Python, Java, TypeScript, C, HTML/CSS</p>
-        <hr class="divider" />
-        <h4>Frameworks &amp; Tools</h4>
-        <p>SQL, Git, Django, React, NumPy</p>
-      </div>
-    </div>
-  </section>
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>
+        I'm always open to new opportunities! Email me or connect on these platforms:
+      </p>
+      <!-- You could also place social icons here as a second instance if desired -->
+    </section>
 
-  <!-- PROJECTS SECTION -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <!-- TypeRush -->
-      <div class="project-card">
-        <img src="././static/images/typerush.png" alt="TypeRush" />
-        <h3>TypeRush</h3>
-        <p>
-          A speed typing web application using Django.
-          <br><strong>Tech:</strong> Python, JavaScript, Django, HTML/CSS, jQuery
-        </p>
-        <a href="https://github.com/TheCalebHenshaw/TypeRush" target="_blank">
-          <i class="fab fa-github"></i> View on GitHub
-        </a>
-      </div>
-
-      <!-- RPG Unity -->
-      <div class="project-card">
-        <img src="././static/images/RPG.png" alt="RPG Unity" />
-        <h3>RPG Unity</h3>
-        <p>
-          A simple RPG using Unity and C#. This is an ongoing project!
-        </p>
-        <a href="#" target="_blank">
-          <i class="fab fa-github"></i> View on GitHub
-        </a>
-      </div>
-
-      <!-- Tron -->
-      <div class="project-card">
-        <img src="././static/images/tron.png" alt="Tron Hackathon Project" />
-        <h3>Tron</h3>
-        <p>
-          Simple 2D Game based on Tron. Developed for a JP Morgan hackathon, which placed us in second!
-          <br><strong>Tech:</strong> Python, PyGame
-        </p>
-        <a href="https://github.com/TheCalebHenshaw/dyhtg-tron" target="_blank">
-          <i class="fab fa-github"></i> View on GitHub
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>
-      I'm always open to new opportunities. Email me or connect on these platforms:
-    </p>
-    <div class="socialMedia">
-      <a href="https://www.linkedin.com/in/caleb-henshaw-095998308/" target="_blank">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://www.github.com/TheCalebHenshaw" target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="mailto:caleb.henshaw67@gmail.com">
-        <i class="fas fa-envelope"></i>
-      </a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 Caleb Henshaw</p>
-  </footer>
+    <!-- FOOTER -->
+    <footer>
+      &copy; 2025 Caleb Henshaw
+    </footer>
+  </div>
 </body>
 </html>
