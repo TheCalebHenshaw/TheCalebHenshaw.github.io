@@ -1,22 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Page not found</title>
-    <link href="styles.css" rel="stylesheet" type="text/css" />
-    <link href="/static/stylesheets/404.css" rel="stylesheet" type="text/css" />
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page Not Found</title>
+  <link rel="icon" type="image/png" href="/static/images/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0b1120;
+      color: #cbd5e1;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+    }
+    h1 {
+      font-size: clamp(5rem, 20vw, 9rem);
+      font-weight: 800;
+      color: #38bdf8;
+      line-height: 1;
+    }
+    h2 {
+      color: #f1f5f9;
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      margin: 1rem 0 0.5rem;
+    }
+    p { color: #8fa3bf; margin-bottom: 2rem; }
+    a {
+      display: inline-block;
+      background: #38bdf8;
+      color: #06121f;
+      font-weight: 600;
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    a:hover { background: #5eccfa; transform: translateY(-2px); }
+  </style>
 </head>
 <body>
-  <div class="container">
-      <div id="typed-strings">
-      
-      </div>
-      <span id="typed"></span>
-  </div>
-  <a href="index.html">
-    <button id="home" style="display: none;">Home</button></a>
-  <script src="/static/scripts/404.js"></script>
+  <h1>404</h1>
+  <h2>Page not found</h2>
+  <p>Looks like you've taken a wrong turn. This page doesn't exist.</p>
+  <a href="/">Back to Home</a>
 </body>
 </html>

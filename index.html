@@ -1,377 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Caleb Henshaw - Software Developer</title>
-
-  <!-- Font Awesome for icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-  />
-
-  <style>
-    /********************************
-     * GLOBAL RESET & THEME
-     ********************************/
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Helvetica Neue", sans-serif;
-    }
-
-    body {
-      background-color: #fff;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: #333;
-      transition: color 0.2s;
-    }
-    a:hover {
-      color: #3498db; /* accent color */
-    }
-
-    /********************************
-     * SIDEBAR / NAV
-     ********************************/
-    .sidebar {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 280px;          /* side panel width */
-      height: 100vh;         /* fill full height */
-      background: #f8f8f8;   /* subtle background */
-      box-shadow: 2px 0 5px rgba(0,0,0,0.05);
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    /* Name / Tagline area in sidebar */
-    .brand {
-      margin-bottom: 2rem;
-    }
-    .brand h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.3rem;
-      color: #333;
-    }
-    .brand p {
-      color: #777;
-      font-size: 0.95rem;
-    }
-
-    /* Navigation links */
-    nav ul {
-      list-style-type: none;
-      margin-top: 2rem;
-    }
-    nav li {
-      margin-bottom: 1rem;
-    }
-    nav a {
-      font-size: 1rem;
-      font-weight: 500;
-      display: inline-block;
-    }
-
-    /* Social icons at bottom of sidebar */
-    .sidebar .socialMedia {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .sidebar .socialMedia a {
-      font-size: 1.2rem;
-      color: #666;
-    }
-    .sidebar .socialMedia a:hover {
-      color: #3498db;
-    }
-
-    /********************************
-     * MAIN CONTENT
-     ********************************/
-    .content {
-      margin-left: 280px; /* leaves space for the fixed sidebar */
-      padding: 2rem;
-      min-height: 100vh;  /* ensure it fills vertically when content is small */
-    }
-
-    /* HOME SECTION */
-    header {
-      margin-bottom: 3rem;
-    }
-    header h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-    header h3 {
-      color: #555;
-      font-weight: 400;
-      margin-bottom: 1rem;
-    }
-    .resume-button {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      background: #333;
-      color: #fff;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: background 0.3s;
-      font-size: 1rem;
-    }
-    .resume-button:hover {
-      background: #444;
-    }
-
-    /********************************
-     * ABOUT SECTION
-     ********************************/
-    #about {
-      margin-bottom: 3rem;
-    }
-    #about h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-    .about-card {
-      background: #fafafa;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-      padding: 1rem;
-      text-align: center;
-    }
-    .about-card img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 0.75rem;
-    }
-    .about-card h4 {
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-    .about-card p {
-      color: #555;
-      font-size: 0.95rem;
-      line-height: 1.4;
-    }
-
-    /********************************
-     * PROJECTS SECTION
-     ********************************/
-    #projects {
-      margin-bottom: 3rem;
-    }
-    #projects h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-    }
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-    .project-card {
-      background: #fafafa;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-      padding: 1rem;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-    }
-    .project-card img {
-      width: 100%;
-      height: auto;
-      border-radius: 4px;
-      margin-bottom: 0.75rem;
-      object-fit: cover;
-    }
-    .project-card h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
-    }
-    .project-card p {
-      flex: 1 0 auto;
-      font-size: 0.95rem;
-      line-height: 1.4;
-      margin-bottom: 1rem;
-      color: #555;
-    }
-    .project-card a {
-      padding: 0.5rem 1rem;
-      background: #333;
-      color: #fff;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: background 0.3s;
-      font-size: 0.9rem;
-      align-self: center;
-    }
-    .project-card a:hover {
-      background: #444;
-    }
-
-    /********************************
-     * CONTACT SECTION
-     ********************************/
-    #contact h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-    }
-    #contact p {
-      margin-bottom: 1.2rem;
-    }
-
-    /********************************
-     * FOOTER
-     ********************************/
-    footer {
-      margin-top: 4rem; /* create space before footer */
-      font-size: 0.9rem;
-      color: #999;
-      text-align: center;
-      padding: 2rem 0;
-      border-top: 1px solid #eee;
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caleb Henshaw — Software Engineer</title>
+  <meta name="description" content="Caleb Henshaw — MSci Software Engineering student at the University of Glasgow and Software Engineer Intern. Full-stack development, cloud engineering, and test automation." />
+  <meta property="og:title" content="Caleb Henshaw — Software Engineer" />
+  <meta property="og:description" content="MSci Software Engineering student at the University of Glasgow. Full-stack development, cloud engineering, and test automation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thecalebhenshaw.github.io/" />
+  <link rel="icon" type="image/png" href="static/images/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="static/stylesheets/main.css" />
 </head>
 <body>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="brand">
-      <h1>Caleb Henshaw</h1>
-      <p>CS Undergrad</p>
-      <p>Software Developer</p>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
+  <!-- NAVBAR -->
+  <header class="nav-wrap">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav-brand" href="#top">CH<span class="accent">.</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a class="nav-resume" href="static/resume.pdf" target="_blank" rel="noopener">Resume</a></li>
       </ul>
     </nav>
-    <div class="socialMedia">
-      <a href="https://www.linkedin.com/in/caleb-henshaw-095998308/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/TheCalebHenshaw" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="mailto:caleb.henshaw67@gmail.com"><i class="fas fa-envelope"></i></a>
-    </div>
-  </aside>
+  </header>
 
-  <!-- MAIN CONTENT -->
-  <div class="content">
-    <!-- HOME / INTRO SECTION -->
-    <header id="home">
-      <h2>Hey! I'm Caleb</h2>
-      <h3>Passionate about building impactful software</h3>
-      <a href="././static/resume.pdf" class="resume-button" target="_blank">View My Resume</a>
-    </header>
+  <main id="top">
 
-    <!-- ABOUT SECTION -->
-    <section id="about">
-      <h2>About</h2>
-      <div class="about-grid">
-        <!-- Profile Card -->
-        <div class="about-card">
-          <img src="././static/images/newprofile.jpg" alt="Profile Photo" />
-          <h4>Profile</h4>
-          <p>
-            Languages: English (Native), German (Intermediate), French (Basic)
-          </p>
+    <!-- HERO -->
+    <section class="hero container">
+      <div class="hero-text">
+        <p class="hero-kicker">Hi, my name is</p>
+        <h1>Caleb Henshaw<span class="accent">.</span></h1>
+        <h2>I build software for the web and the cloud.</h2>
+        <p class="hero-blurb">
+          I'm a Software Engineer currently interning at
+          <a href="https://www.twint.ch" target="_blank" rel="noopener">TWINT&nbsp;AG</a> in Zürich
+          and studying for an MSci in Software Engineering at the University of Glasgow.
+          I enjoy shipping full-stack products end to end — from API design and test
+          automation to cloud infrastructure.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="static/resume.pdf" target="_blank" rel="noopener">View Resume</a>
+          <a class="btn btn-ghost" href="#contact">Get in Touch</a>
         </div>
-        <!-- Education Card -->
-        <div class="about-card">
-          <img src="././static/images/glasgow.jpg" alt="University of Glasgow" />
-          <h4>Education</h4>
-          <p>
-            BSc Hons. Computing Science<br>
-            University of Glasgow, 2022-Present
-          </p>
-        </div>
-        <!-- Skills Card -->
-        <div class="about-card">
-          <h4>Skills</h4>
-          <p>Python, Java, TypeScript, C, HTML/CSS</p>
-          <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 1rem 0;" />
-          <h4>Frameworks &amp; Tools</h4>
-          <p>SQL, Git, Django, React, NumPy</p>
-        </div>
+        <ul class="hero-social">
+          <li>
+            <a href="https://github.com/TheCalebHenshaw" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/caleb-henshaw-095998308/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M20.4 20.4h-3.5v-5.6c0-1.3 0-3-1.9-3-1.8 0-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.2 2.4 4.2 5.4v6.3ZM5.3 7.4a2 2 0 1 1 0-4.1 2 2 0 0 1 0 4.1Zm1.8 13H3.6V9h3.5v11.4ZM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 1 .8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-1-.8-1.7-1.8-1.7Z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:caleb.henshaw67@gmail.com" aria-label="Email">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7L22 7"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="hero-photo">
+        <img src="static/images/profile-web.jpg" alt="Portrait of Caleb Henshaw" width="720" height="960" />
       </div>
     </section>
 
-    <!-- PROJECTS SECTION -->
-    <section id="projects">
-      <h2>Projects</h2>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="container section">
+      <h2 class="section-title"><span class="accent">01.</span> Experience</h2>
+      <div class="timeline">
+
+        <article class="timeline-item">
+          <div class="timeline-meta">
+            <span class="timeline-date">Jun 2025 — Jun 2026</span>
+            <span class="timeline-loc">Zürich, Switzerland</span>
+          </div>
+          <div class="timeline-body">
+            <h3>IT Intern · <span class="accent">TWINT AG</span></h3>
+            <p class="timeline-sub">Rotation across QA Test Automation, Full-Stack Development, and Azure Cloud Engineering.</p>
+            <ul>
+              <li>Built a real-time test results dashboard in React served via Nginx, adopted by all internal developers and used by client banks across Switzerland to measure service reliability.</li>
+              <li>Developed 100+ end-to-end API integration tests (REST &amp; SOAP) in Java using Playwright, AssertJ, and Spring, covering complex multi-step workflows.</li>
+              <li>Architected a full redesign of the finance processor mock service — migrating WildFly to Spring Boot with hexagonal architecture and OpenAPI specs — and built its Angular UI, containerized with Docker and deployed via GoCD and Rancher.</li>
+              <li>Assisted in migrating services from Swisscom Cloud to Azure using Terraform and Terragrunt, and engineered a Tier 1 Capital collateral forecasting prototype with XGBoost.</li>
+            </ul>
+            <div class="tags">
+              <span>Spring Boot</span><span>Angular</span><span>React</span><span>Java</span><span>Docker</span><span>Kubernetes</span><span>Terraform</span><span>Azure</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-meta">
+            <span class="timeline-date">Jul 2024 — Dec 2024</span>
+            <span class="timeline-loc">Zug, Switzerland</span>
+          </div>
+          <div class="timeline-body">
+            <h3>Junior Software Intern · <span class="accent">Service365</span></h3>
+            <p class="timeline-sub">Full-stack development on an in-house client dashboard.</p>
+            <ul>
+              <li>Developed an in-house dashboard with Next.js and PostgreSQL displaying critical day-to-day information for clients.</li>
+              <li>Built RESTful APIs serving a TypeScript front end from dynamically chosen user inputs, handling thousands of concurrent users.</li>
+              <li>Produced design documentation and unit tests, and gained experience deploying web apps through Microsoft Azure.</li>
+            </ul>
+            <div class="tags">
+              <span>Next.js</span><span>React</span><span>TypeScript</span><span>PostgreSQL</span><span>Prisma</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="container section">
+      <h2 class="section-title"><span class="accent">02.</span> Projects</h2>
       <div class="project-grid">
-        <!-- TypeRush -->
-        <div class="project-card">
-          <img src="././static/images/typerush.png" alt="TypeRush" />
+
+        <article class="project-card featured">
+          <div class="project-head">
+            <span class="project-icon" aria-hidden="true">🏎️</span>
+            <div class="project-links">
+              <a href="https://henshawf1.ch" target="_blank" rel="noopener" aria-label="Visit henshawf1.ch">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3><a href="https://henshawf1.ch" target="_blank" rel="noopener">Henshawf1.ch</a></h3>
+          <p class="project-tag-line">Full-Stack F1 Prediction Platform</p>
+          <p>Designed and shipped a production F1 prediction platform from scratch — a fully automated data pipeline ingesting a live F1 API across 24 races per season, handling scoring and leaderboard updates with zero manual intervention. Includes a production-grade auth system with JWT password reset and SMS race-deadline reminders, serving 25–30 active users per season.</p>
+          <div class="tags">
+            <span>Next.js</span><span>Supabase</span><span>Prisma</span><span>Vercel</span><span>Azure</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-head">
+            <span class="project-icon" aria-hidden="true">🔬</span>
+          </div>
+          <h3>SUERC AMS Database</h3>
+          <p class="project-tag-line">Scientific Data Management · BSc Project</p>
+          <p>Led a six-month agile project in a 5-person team delivering a database system for a mass spectrometry research lab, under a signed software delivery agreement. Engineered a 250+ column relational schema for structured scientific measurement data and cut storage requirements by 90% through data compression.</p>
+          <div class="tags">
+            <span>Python</span><span>Pandas</span><span>Docker</span><span>GitLab CI/CD</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-head">
+            <span class="project-icon" aria-hidden="true">⌨️</span>
+            <div class="project-links">
+              <a href="https://github.com/TheCalebHenshaw/TypeRush" target="_blank" rel="noopener" aria-label="TypeRush on GitHub">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg>
+              </a>
+            </div>
+          </div>
           <h3>TypeRush</h3>
-          <p>
-            A speed typing web application built with Django.
-            <br><strong>Tech:</strong> Python, JavaScript, Django, jQuery
-          </p>
-          <a href="https://github.com/TheCalebHenshaw/TypeRush" target="_blank">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-        </div>
-        <!-- RPG Unity -->
-        <div class="project-card">
-          <img src="././static/images/fridge3.jpg" alt="RPG Unity" />
-          <h3>FridgeScanEat</h3>
-          <p>
-            A Simple Web Application using AI to suggest recipes based on ingredients you have.
-            <br><strong>Tech:</strong> React, NextJS, NodeJS, SQLite
-          </p>
-          <a href="#" target="_blank">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-        </div>
-        <!-- Tron -->
-        <div class="project-card">
-          <img src="././static/images/tron.png" alt="Tron Hackathon Project" />
+          <p class="project-tag-line">Speed Typing Web App</p>
+          <p>A speed typing web application with live scoring, built with Django and jQuery.</p>
+          <div class="tags">
+            <span>Python</span><span>Django</span><span>JavaScript</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-head">
+            <span class="project-icon" aria-hidden="true">🕹️</span>
+            <div class="project-links">
+              <a href="https://github.com/TheCalebHenshaw/dyhtg-tron" target="_blank" rel="noopener" aria-label="Tron on GitHub">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg>
+              </a>
+            </div>
+          </div>
           <h3>Tron</h3>
-          <p>
-            A 2D game based on Tron, built for a JP Morgan hackathon, placing second.
-            <br><strong>Tech:</strong> Python, PyGame
-          </p>
-          <a href="https://github.com/TheCalebHenshaw/dyhtg-tron" target="_blank">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
+          <p class="project-tag-line">Hackathon Game · 2nd Place 🏆</p>
+          <p>A 2D game based on Tron built for the University of Glasgow hackathon, placing 2nd with an honorable mention.</p>
+          <div class="tags">
+            <span>Python</span><span>PyGame</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="container section">
+      <h2 class="section-title"><span class="accent">03.</span> Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <div class="tags"><span>Java</span><span>Python</span><span>TypeScript</span><span>JavaScript</span><span>SQL</span><span>HTML/CSS</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Frameworks</h3>
+          <div class="tags"><span>Spring Boot</span><span>Angular</span><span>React</span><span>Next.js</span><span>Django</span><span>Prisma</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Cloud &amp; DevOps</h3>
+          <div class="tags"><span>Azure</span><span>Docker</span><span>Kubernetes</span><span>Terraform</span><span>Terragrunt</span><span>GoCD</span><span>Jenkins</span><span>GitLab CI/CD</span><span>Nginx</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Testing &amp; Data</h3>
+          <div class="tags"><span>Playwright</span><span>AssertJ</span><span>PostgreSQL</span><span>Supabase</span><span>Pandas</span><span>OpenAPI</span></div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact">
-      <h2>Contact Me</h2>
-      <p>
-        I'm always open to new opportunities! Email me or connect on these platforms:
-      </p>
-      <!-- You could also place social icons here as a second instance if desired -->
+    <!-- EDUCATION / ABOUT -->
+    <section id="education" class="container section">
+      <h2 class="section-title"><span class="accent">04.</span> Education &amp; About</h2>
+      <div class="edu-grid">
+        <div class="card">
+          <h3>🎓 University of Glasgow</h3>
+          <p class="card-sub">MSci Software Engineering · Sept 2022 — June 2027 · GPA 3.6/4.0</p>
+          <p><strong>Relevant courses:</strong> Data Structures &amp; Algorithms, Cybersecurity Fundamentals, Database Fundamentals, Text as Data (NLP), Web App Development.</p>
+          <p><strong>Extracurriculars:</strong> VP of the Glasgow Ice Hockey Team · Glasgow University Computing Society · 2nd place, University of Glasgow Hackathon.</p>
+        </div>
+        <div class="card">
+          <h3>👋 A little about me</h3>
+          <p>Having grown up in Canada, I moved with my family to Switzerland in 2015 and finished school at the International School of Zug and Luzern. I'm now pursuing my MSci in Software Engineering at the University of Glasgow and plan to work in industry after graduating. In my free time I love playing music and ice hockey.</p>
+          <p><strong>Spoken languages:</strong> English (native) · German (B1) · French (A2)</p>
+        </div>
+      </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-      &copy; 2025 Caleb Henshaw
-    </footer>
-  </div>
+    <!-- CONTACT -->
+    <section id="contact" class="container section contact">
+      <h2 class="section-title centered"><span class="accent">05.</span> Get in Touch</h2>
+      <p class="contact-blurb">
+        I'm always open to new opportunities, collaborations, or a quick chat.
+        My inbox is open — I'll get back to you as soon as I can.
+      </p>
+      <a class="btn btn-primary btn-lg" href="mailto:caleb.henshaw67@gmail.com">Say Hello</a>
+      <ul class="hero-social contact-social">
+        <li>
+          <a href="https://github.com/TheCalebHenshaw" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/caleb-henshaw-095998308/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.4h-3.5v-5.6c0-1.3 0-3-1.9-3-1.8 0-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.2 2.4 4.2 5.4v6.3ZM5.3 7.4a2 2 0 1 1 0-4.1 2 2 0 0 1 0 4.1Zm1.8 13H3.6V9h3.5v11.4ZM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 1 .8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-1-.8-1.7-1.8-1.7Z"/></svg>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Designed &amp; built by Caleb Henshaw · © 2026</p>
+  </footer>
+
+  <script src="static/scripts/main.js" defer></script>
 </body>
 </html>
